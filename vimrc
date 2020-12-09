@@ -1,8 +1,26 @@
 " Configuration
 
-" Pathogen first
+" Vundle
+set nocompatible
+filetype off
 
-execute pathogen#infect()
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" Plugins
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'posva/vim-vue'
+Plugin 'bling/vim-airline'
+Plugin 'roxma/nvim-yarp'
+Plugin 'ncm2/ncm2'
+" Filepath completion
+Plugin 'ncm2/ncm2-path'
+
+call vundle#end()
+
+" Pathogen first
 
 " Basic Settings
 
@@ -50,9 +68,6 @@ set spell spelllang=en_us
 set colorcolumn=80
 
 " Aesthetics
-
-colorscheme solarized
-set background=light
 
 " Mappings and shortcuts
 
@@ -117,3 +132,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Windows terminal cursor
+let &t_SI="\<CSI>5\ q"
+let &t_SR="\<CSI>7\ q"
+let &t_EI="\<CSI>2\ q"

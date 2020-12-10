@@ -147,7 +147,6 @@ nnoremap <leader>d :read !date<CR>
 nnoremap <leader>r :!!<CR>
 nnoremap <leader>m :normal @a
 nnoremap <leader>l :CtrlP<CR>
-nnoremap <leader>nt :NERDTree<CR>
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>n :set nonumber!<CR>
 nnoremap <leader>rn :set norelativenumber!<CR>
@@ -157,8 +156,7 @@ nnoremap <leader>rc :so $MYVIMRC<CR>
 nnoremap <leader>b :BlogSave publish<CR>
 "nnoremap <leader>r :! /Users/daniel/Documents/whup.sh<CR><CR>
 nnoremap <leader>h :set ft=HTML<CR><CR>
-nnoremap <C-o> :NERDTreeToggle<CR>
-nnoremap <C-t> <C-w>w
+nnoremap <C-g> :NERDTree<CR>
 nnoremap :tn :tabnew
 nnoremap :tc :tabclose
 nnoremap :to :tabonly

@@ -38,6 +38,10 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+" Dracula Theme
+Plugin 'dracula/Vim', {'name':'dracula'}
+
+
 call vundle#end()
 
 " Trigger configuration. You need to change this to something other than
@@ -95,6 +99,7 @@ set formatoptions=qrn1
 set colorcolumn=80
 
 " Aesthetics
+color dracula
 
 " Mappings and shortcuts
 

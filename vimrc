@@ -99,6 +99,7 @@ set formatoptions=qrn1
 set colorcolumn=80
 
 " Aesthetics
+let g:dracula_colorterm = 0
 color dracula
 
 " Mappings and shortcuts

@@ -55,7 +55,6 @@ let g:UltiSnipsEditSplit="vertical"
 filetype plugin indent on
 syntax on
 set clipboard=unnamed
-set shell=/bin/zsh
 set guifont=Menlo:h14
 set nocompatible
 set modelines=0
@@ -93,7 +92,6 @@ set wrap
 set linebreak
 set nolist
 set formatoptions=qrn1
-set spell spelllang=en_us
 set colorcolumn=80
 
 " Aesthetics

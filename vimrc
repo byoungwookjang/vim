@@ -1,5 +1,7 @@
 " Configuration
 
+
+
 " Vundle
 set nocompatible
 filetype off
@@ -30,8 +32,21 @@ Plugin 'Shougo/neosnippet-snippets'
 " Python autocomplete. pip install jedi first
 Plugin 'davidhalter/jedi-vim'
 
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
+
+" Trigger configuration. You need to change this to something other than
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Pathogen first
 
@@ -156,3 +171,11 @@ nnoremap <C-l> <C-w>l
 let &t_SI="\<CSI>5\ q"
 let &t_SR="\<CSI>7\ q"
 let &t_EI="\<CSI>2\ q"
+
+" vim-multiple-cursor
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'

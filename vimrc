@@ -11,12 +11,25 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'posva/vim-vue'
 Plugin 'bling/vim-airline'
 Plugin 'roxma/nvim-yarp'
 Plugin 'ncm2/ncm2'
 " Filepath completion
 Plugin 'ncm2/ncm2-path'
+" Multi Cursor
+Plugin 'terryma/vim-multiple-cursors'
+
+" Neosnippet
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
+" Python autocomplete. pip install jedi first
+Plugin 'davidhalter/jedi-vim'
+
 
 call vundle#end()
 
@@ -26,6 +39,7 @@ call vundle#end()
 
 filetype plugin indent on
 syntax on
+set clipboard=unnamed
 set shell=/bin/zsh
 set guifont=Menlo:h14
 set nocompatible
@@ -125,6 +139,11 @@ nnoremap <leader>rc :so $MYVIMRC<CR>
 nnoremap <leader>b :BlogSave publish<CR>
 "nnoremap <leader>r :! /Users/daniel/Documents/whup.sh<CR><CR>
 nnoremap <leader>h :set ft=HTML<CR><CR>
+nnoremap <C-o> :NERDTreeToggle<CR>
+nnoremap <C-t> <C-w>w
+nnoremap :tn :tabnew
+nnoremap :tc :tabclose
+nnoremap :to :tabonly
 
 " Control shortcuts
 

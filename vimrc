@@ -67,7 +67,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set encoding=utf-8
-set scrolloff=3
+set scrolloff=20
 set autoindent
 set showmode
 set showcmd
@@ -103,6 +103,8 @@ let g:dracula_colorterm = 0
 color dracula
 
 " Mappings and shortcuts
+nnoremap j jzz
+nnoremap k kzz
 
 " Basics
 
@@ -157,7 +159,8 @@ nnoremap <leader>rc :so $MYVIMRC<CR>
 nnoremap <leader>b :BlogSave publish<CR>
 "nnoremap <leader>r :! /Users/daniel/Documents/whup.sh<CR><CR>
 nnoremap <leader>h :set ft=HTML<CR><CR>
-nnoremap <C-g> :NERDTree<CR>
+nnoremap <C-g> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTree
 nnoremap :tn :tabnew
 nnoremap :tc :tabclose
 nnoremap :to :tabonly

@@ -1,57 +1,49 @@
+" Windows Vundle
+filetype off
+set shellslash
+set rtp+=~/vimfiles/bundle/Vundle.vim
+call vundle#begin('~/vimfiles/bundle')
+
 " Configuration
 
-
-
 " Vundle
-set nocompatible
-filetype off
+"set nocompatible
 
-set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/Vundle.vim
 
 " Plugins
-call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'posva/vim-vue'
-Plugin 'bling/vim-airline'
-Plugin 'roxma/nvim-yarp'
-Plugin 'ncm2/ncm2'
-" Filepath completion
-Plugin 'ncm2/ncm2-path'
+
+" Latex configuration
+"Plugin 'sirver/ultisnips'
+"    let g:UltiSnipsExpandTrigger = '<tab>'
+"    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+"    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+Plugin 'lervag/vimtex'
+    let g:tex_flavor='latex'
+    let g:vimtex_view_enabled = 0
+    " let g:vimtex_view_method='zathura'
+    let g:vimtex_quickfix_mode=0
+
+"Plugin 'KeitaNakamura/tex-conceal.vim'
+    "set conceallevel=1
+    "let g:tex_conceal='abdmg'
+
+setlocal nospell
+set spelllang=en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 " Multi Cursor
 Plugin 'terryma/vim-multiple-cursors'
-
-" Neosnippet
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-
-" Python autocomplete. pip install jedi first
-Plugin 'davidhalter/jedi-vim'
-
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
 
 " Dracula Theme
 Plugin 'dracula/Vim', {'name':'dracula'}
 
 
 call vundle#end()
-
-" Trigger configuration. You need to change this to something other than
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-
 " Pathogen first
 
 " Basic Settings
@@ -67,14 +59,16 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set encoding=utf-8
-set scrolloff=20
+set fileencodings=utf-8,euckr
+set scrolloff=10
 set autoindent
 set showmode
 set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
-set visualbell
+" set visualbell
+" set belloff=esc
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -96,19 +90,27 @@ set wrap
 set linebreak
 set nolist
 set formatoptions=qrn1
-set colorcolumn=80
+"set colorcolumn=80
 
 " Aesthetics
 let g:dracula_colorterm = 0
 color dracula
 
+packadd! dracula
+syntax enable
+colorscheme dracula
+
 " Mappings and shortcuts
-nnoremap j jzz
-nnoremap k kzz
+" nnoremap j jzz
+" nnoremap k kzz
+
+" Ctrl - s to save
+nmap <c-s> :w<cr>
+imap <c-s> <esc>:w<cr>a
 
 " Basics
 
-inoremap jk <ESC>
+" inoremap jk <ESC>
 let mapleader = ","
 
 " Arrows are unvimlike 
@@ -117,10 +119,10 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 
 " Miscellaneous 
 
@@ -129,6 +131,11 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 au FocusLost * :wa
 vnoremap . :norm.<CR>
+
+" Latex Configurations
+let g:vimtex_view_general_viewer = 'wslview'
+let g:vimtex_view_general_options = '-reuse-instance @pdf'
+"let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 " Leader shortcuts
 
@@ -179,8 +186,10 @@ let &t_EI="\<CSI>2\ q"
 
 " vim-multiple-cursor
 let g:multi_cursor_use_default_mapping=0
+
 " Default mapping
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+

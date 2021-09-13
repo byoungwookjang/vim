@@ -1,36 +1,41 @@
-" Windows Vundle
-filetype off
-set shellslash
-set rtp+=~/vimfiles/bundle/Vundle.vim
-call vundle#begin('~/vimfiles/bundle')
+" Vundle
+set nocompatible              
+filetype off                 
 
 " Configuration
 
 " Vundle
-"set nocompatible
-
-" set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+    let g:airline_theme='bubblegum'
 
 " Latex configuration
-"Plugin 'sirver/ultisnips'
-"    let g:UltiSnipsExpandTrigger = '<tab>'
-"    let g:UltiSnipsJumpForwardTrigger = '<tab>'
-"    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+Plugin 'sirver/ultisnips'
+    let g:UltiSnipsExpandTrigger = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+    let g:UltiSnipsEditSplit="vertical"
+Plugin 'honza/vim-snippets'
 
 Plugin 'lervag/vimtex'
     let g:tex_flavor='latex'
-    let g:vimtex_view_enabled = 0
-    " let g:vimtex_view_method='zathura'
+    "let g:vimtex_view_enabled = 0
+    let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
+    let g:vimtex_view_general_viewer = 'sumatraPDF'
+    let g:vimtex_view_general_options = '-reuse-instance @pdf'
+    let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
-"Plugin 'KeitaNakamura/tex-conceal.vim'
-    "set conceallevel=1
-    "let g:tex_conceal='abdmg'
+Plugin 'KeitaNakamura/tex-conceal.vim'
+    set conceallevel=1
+    let g:tex_conceal='abdmg'
 
 setlocal nospell
 set spelllang=en_us
@@ -47,7 +52,6 @@ call vundle#end()
 " Pathogen first
 
 " Basic Settings
-
 filetype plugin indent on
 syntax on
 set clipboard=unnamed
@@ -96,9 +100,9 @@ set formatoptions=qrn1
 let g:dracula_colorterm = 0
 color dracula
 
-packadd! dracula
-syntax enable
-colorscheme dracula
+"packadd! dracula
+" syntax enable
+"colorscheme dracula
 
 " Mappings and shortcuts
 " nnoremap j jzz
@@ -133,8 +137,8 @@ au FocusLost * :wa
 vnoremap . :norm.<CR>
 
 " Latex Configurations
-let g:vimtex_view_general_viewer = 'wslview'
-let g:vimtex_view_general_options = '-reuse-instance @pdf'
+"let g:vimtex_view_general_viewer = 'wslview'
+"let g:vimtex_view_general_options = '-reuse-instance @pdf'
 "let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 " Leader shortcuts
